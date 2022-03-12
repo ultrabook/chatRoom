@@ -3,7 +3,7 @@ const res = require('express/lib/response');
 const app = express();
 const session = require('express-session');
 const http = require('http');
-const server = http.createServer(app).listen(process.env.PORT || 3000);
+const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
@@ -48,6 +48,6 @@ io.on('connection', (socket) => {
     });
   });
 
-server.listen(3000, () => {
+server.listen(process.env.PORT || 3000, () => {
     console.log('listening on port 3000');
 });
