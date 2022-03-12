@@ -3,7 +3,7 @@ const res = require('express/lib/response');
 const app = express();
 const session = require('express-session');
 const http = require('http');
-const server = http.createServer(app);
+const server = http.createServer(app).listen(process.env.PORT || 3000);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
